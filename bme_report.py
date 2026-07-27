@@ -17,11 +17,12 @@ from datetime import datetime, date, timedelta
 # ============================================================
 #  配置
 # ============================================================
-SMTP_HOST = "smtp.qq.com"
-SMTP_PORT = 587
-SMTP_USER = "1511404091@qq.com"
-SMTP_PASSWORD = "iwzwcypzvwcnjgeg"
-TO_EMAIL = "A1980123qwe@outlook.com"
+# Configure these values as GitHub Actions secrets. Do not commit credentials.
+SMTP_HOST = os.environ.get("SMTP_HOST", "smtp.qq.com")
+SMTP_PORT = int(os.environ.get("SMTP_PORT", "587"))
+SMTP_USER = os.environ["SMTP_USER"]
+SMTP_PASSWORD = os.environ["SMTP_PASSWORD"]
+TO_EMAIL = os.environ["TO_EMAIL"]
 
 # 中科院期刊分区数据库（基于2025年升级版，大类分区）
 # 格式: "期刊名关键词(小写)": (分区, "大类学科", "简称")
